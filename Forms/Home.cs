@@ -1,5 +1,6 @@
 ﻿using EasyTable.Data;
 using EasyTable.Data.Dtos;
+using EasyTable.Forms.Controls;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Drawing;
@@ -12,33 +13,19 @@ namespace EasyTable
     public partial class Home : Form
     {
         private readonly EasyTableDbContext context;
+
         public Home()
         {
             InitializeComponent();
+
             var factory = new EasyTableDbContextFactory();
             context = factory.CreateDbContext(new string[0]);
 
             LoadUsersAsync();
-
-
         }
 
-        private async Task LoadUsersAsync()
-        {
-            var list = await context.Users
-                .Include(u => u.Role)           // само за сигурност, но вече не ти трябва навигация в грида
-                .Select(u => new UserDto
-                {
-                    Id = u.Id,
-                    Name = u.Name,
-                    UserName = u.Username,
-                    RoleName = u.Role.RoleName,
-                    ContactInfo = u.ContactInfo,
-                })
-                .ToListAsync();
 
-            userDtoBindingSource.DataSource = list;
-        }
+
         #region Resizing
         protected override void WndProc(ref Message m)
         {
@@ -84,6 +71,24 @@ namespace EasyTable
         }
         #endregion
 
+        #region Admin
+
+        private async Task LoadUsersAsync()
+        {
+            var list = await context.Users
+                .Include(u => u.Role)           // само за сигурност, но вече не ти трябва навигация в грида
+                .Select(u => new UserDto
+                {
+                    Id = u.Id,
+                    Name = u.Name,
+                    UserName = u.Username,
+                    RoleName = u.Role.RoleName,
+                    ContactInfo = u.ContactInfo,
+                })
+                .ToListAsync();
+
+            userDtoBindingSource.DataSource = list;
+        }
         private void bunifuDataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == 5)
@@ -102,15 +107,27 @@ namespace EasyTable
                 cell.Value = Properties.Resources.icon_options_new;
             }
         }
+        #endregion
 
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        private void bunifuDataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 5)
+            {
+                Point screenPos = Cursor.Position;
 
-        }
+                // 2) convert to client‐coords of your form (or whatever parent you added the control to)  
+                Point clientPos = this.PointToClient(screenPos);
+                _optionsMenu.SetId(int.Parse(bunifuDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
 
-        private void OptionsMenuStrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
+                // 3) compute the location so that the control’s RIGHT edge is at clientPos.X  
+                int x = clientPos.X - _optionsMenu.Width;
+                int y = clientPos.Y;
 
+                _optionsMenu.Visible = true;
+                // 4) position and show  
+                _optionsMenu.Location = new Point(x - 200, y - 100);
+
+            }
         }
     }
 }

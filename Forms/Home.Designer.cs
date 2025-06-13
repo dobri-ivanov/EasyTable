@@ -38,6 +38,7 @@ namespace EasyTable
             this.bunifuPages1 = new Bunifu.UI.WinForms.BunifuPages();
             this.PageAdmin = new System.Windows.Forms.TabPage();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
+            this._optionsMenu = new EasyTable.Forms.Controls.UsersOptions();
             this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,6 +120,7 @@ namespace EasyTable
             this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel2.BorderRadius = 3;
             this.bunifuPanel2.BorderThickness = 1;
+            this.bunifuPanel2.Controls.Add(this._optionsMenu);
             this.bunifuPanel2.Controls.Add(this.bunifuDataGridView1);
             this.bunifuPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bunifuPanel2.Location = new System.Drawing.Point(2, 70);
@@ -126,6 +128,14 @@ namespace EasyTable
             this.bunifuPanel2.ShowBorders = true;
             this.bunifuPanel2.Size = new System.Drawing.Size(988, 593);
             this.bunifuPanel2.TabIndex = 2;
+            // 
+            // _optionsMenu
+            // 
+            this._optionsMenu.Location = new System.Drawing.Point(832, 431);
+            this._optionsMenu.Name = "_optionsMenu";
+            this._optionsMenu.Size = new System.Drawing.Size(150, 123);
+            this._optionsMenu.TabIndex = 1;
+            this._optionsMenu.Visible = false;
             // 
             // bunifuDataGridView1
             // 
@@ -212,6 +222,7 @@ namespace EasyTable
             this.bunifuDataGridView1.Size = new System.Drawing.Size(988, 593);
             this.bunifuDataGridView1.TabIndex = 0;
             this.bunifuDataGridView1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Dark;
+            this.bunifuDataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.bunifuDataGridView1_CellMouseClick);
             this.bunifuDataGridView1.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellMouseEnter);
             this.bunifuDataGridView1.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellMouseLeave);
             // 
@@ -337,7 +348,6 @@ namespace EasyTable
             this.OptionsMenuStrip.ShowImageMargin = false;
             this.OptionsMenuStrip.ShowItemToolTips = false;
             this.OptionsMenuStrip.Size = new System.Drawing.Size(156, 92);
-            this.OptionsMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.OptionsMenuStrip_Opening);
             // 
             // toolStripMenuItem1
             // 
@@ -356,7 +366,6 @@ namespace EasyTable
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(112, 22);
             this.toolStripMenuItem3.Text = "Изтрий";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // Home
             // 
@@ -405,6 +414,7 @@ namespace EasyTable
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private Forms.Controls.UsersOptions _optionsMenu;
     }
 }
 

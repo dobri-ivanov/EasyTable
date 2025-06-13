@@ -286,6 +286,12 @@
     <Compile Include="Forms\Controls\NavBar.Designer.cs">
       <DependentUpon>NavBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Controls\UsersOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Controls\UsersOptions.Designer.cs">
+      <DependentUpon>UsersOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Controls\NavBar.resx">
       <DependentUpon>NavBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Controls\UsersOptions.resx">
+      <DependentUpon>UsersOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
