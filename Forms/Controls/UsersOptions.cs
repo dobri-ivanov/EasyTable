@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace EasyTable.Forms.Controls
 {
     public partial class UsersOptions : UserControl
     {
-        private int _rowId;
-
         public int userId;
 
-        // Събития, които формата ще слуша
         public event Action<int> EditClicked;
         public event Action<int> DeleteClicked;
         public event Action<int> ViewClicked;
@@ -18,35 +16,41 @@ namespace EasyTable.Forms.Controls
         public UsersOptions()
         {
             InitializeComponent();
-
             this.Visible = false;
 
-            EditBtn.Click += (_, __) => EditClicked?.Invoke(_rowId);
-            DeleteBtn.Click += (_, __) => DeleteClicked?.Invoke(_rowId);
-            DetailsBtn.Click += (_, __) => ViewClicked?.Invoke(_rowId);
+            AutoHide();
+        }
 
+        private void OnMouseLeftControl(object sender, EventArgs e)
+        {
+            Point pt = this.PointToClient(Cursor.Position);
+
+            if (!this.ClientRectangle.Contains(pt))
+                this.Visible = false;
+        }
+
+        private void AutoHide()
+        {
             this.Leave += (_, __) => this.Visible = false;
-
-            EditBtn.Text = userId.ToString();
 
             this.MouseLeave += OnMouseLeftControl;
             foreach (Control child in this.Controls)
                 child.MouseLeave += OnMouseLeftControl;
         }
 
-        private void OnMouseLeftControl(object sender, EventArgs e)
+        public void SetId(int userId)
         {
-            // Get mouse pos relative to this control
-            Point pt = this.PointToClient(Cursor.Position);
-
-            // If it's outside our client rectangle, hide
-            if (!this.ClientRectangle.Contains(pt))
-                this.Visible = false;
+            this.userId = userId;
         }
 
-        public void SetId(int id)
+        private void InfoBtn_Click(object sender, EventArgs e)
         {
-            EditBtn.Text = id.ToString();
+            ViewClicked?.Invoke(userId);
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            EditClicked?.Invoke(userId);
         }
     }
 }

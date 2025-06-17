@@ -274,6 +274,12 @@
     <Compile Include="Data\Models\Role.cs" />
     <Compile Include="Data\Models\User.cs" />
     <Compile Include="Data\EasyTableDbContextFactory.cs" />
+    <Compile Include="Forms\Admin\ViewEditUserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ViewEditUserDialog.Designer.cs">
+      <DependentUpon>ViewEditUserDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Controls\Header.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     <Compile Include="Migrations\EasyTableDbContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Admin\ViewEditUserDialog.resx">
+      <DependentUpon>ViewEditUserDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Controls\Header.resx">
       <DependentUpon>Header.cs</DependentUpon>
     </EmbeddedResource>

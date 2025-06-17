@@ -38,6 +38,7 @@ namespace EasyTable
             this.bunifuPages1 = new Bunifu.UI.WinForms.BunifuPages();
             this.PageAdmin = new System.Windows.Forms.TabPage();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.optionsMenu = new EasyTable.Forms.Controls.UsersOptions();
             this._optionsMenu = new EasyTable.Forms.Controls.UsersOptions();
             this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,17 +52,12 @@ namespace EasyTable
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.navBar1 = new EasyTable.Forms.Controls.NavBar();
             this.header1 = new EasyTable.Forms.Controls.Header();
-            this.OptionsMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuPages1.SuspendLayout();
             this.PageAdmin.SuspendLayout();
             this.bunifuPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDtoBindingSource)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
-            this.OptionsMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuPages1
@@ -120,6 +116,7 @@ namespace EasyTable
             this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel2.BorderRadius = 3;
             this.bunifuPanel2.BorderThickness = 1;
+            this.bunifuPanel2.Controls.Add(this.optionsMenu);
             this.bunifuPanel2.Controls.Add(this._optionsMenu);
             this.bunifuPanel2.Controls.Add(this.bunifuDataGridView1);
             this.bunifuPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -129,11 +126,19 @@ namespace EasyTable
             this.bunifuPanel2.Size = new System.Drawing.Size(988, 593);
             this.bunifuPanel2.TabIndex = 2;
             // 
+            // optionsMenu
+            // 
+            this.optionsMenu.Location = new System.Drawing.Point(888, 477);
+            this.optionsMenu.Name = "optionsMenu";
+            this.optionsMenu.Size = new System.Drawing.Size(100, 118);
+            this.optionsMenu.TabIndex = 2;
+            this.optionsMenu.Visible = false;
+            // 
             // _optionsMenu
             // 
-            this._optionsMenu.Location = new System.Drawing.Point(832, 431);
+            this._optionsMenu.Location = new System.Drawing.Point(894, 477);
             this._optionsMenu.Name = "_optionsMenu";
-            this._optionsMenu.Size = new System.Drawing.Size(150, 123);
+            this._optionsMenu.Size = new System.Drawing.Size(100, 118);
             this._optionsMenu.TabIndex = 1;
             this._optionsMenu.Visible = false;
             // 
@@ -335,38 +340,6 @@ namespace EasyTable
             this.header1.Size = new System.Drawing.Size(1200, 40);
             this.header1.TabIndex = 2;
             // 
-            // OptionsMenuStrip
-            // 
-            this.OptionsMenuStrip.AutoSize = false;
-            this.OptionsMenuStrip.BackColor = System.Drawing.SystemColors.Control;
-            this.OptionsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
-            this.OptionsMenuStrip.Name = "OptionsMenuStrip";
-            this.OptionsMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.OptionsMenuStrip.ShowImageMargin = false;
-            this.OptionsMenuStrip.ShowItemToolTips = false;
-            this.OptionsMenuStrip.Size = new System.Drawing.Size(156, 92);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
-            this.toolStripMenuItem1.Text = "Детайли";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(112, 22);
-            this.toolStripMenuItem2.Text = "Редактирай";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(112, 22);
-            this.toolStripMenuItem3.Text = "Изтрий";
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,7 +361,6 @@ namespace EasyTable
             ((System.ComponentModel.ISupportInitialize)(this.userDtoBindingSource)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
-            this.OptionsMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -410,11 +382,8 @@ namespace EasyTable
         private System.Windows.Forms.DataGridViewTextBoxColumn roleNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactInfoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Options;
-        private System.Windows.Forms.ContextMenuStrip OptionsMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private Forms.Controls.UsersOptions _optionsMenu;
+        private Forms.Controls.UsersOptions optionsMenu;
     }
 }
 

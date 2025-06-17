@@ -1,5 +1,6 @@
 ﻿using EasyTable.Data;
 using EasyTable.Data.Dtos;
+using EasyTable.Forms.Admin;
 using EasyTable.Forms.Controls;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,9 +23,16 @@ namespace EasyTable
             context = factory.CreateDbContext(new string[0]);
 
             LoadUsersAsync();
+
+            SetUpForm();
         }
 
-
+        private void SetUpForm()
+        {
+            optionsMenu.EditClicked += OptionsMenu_Edit;
+            optionsMenu.DeleteClicked += OptionsMenu_Delete;
+            optionsMenu.ViewClicked += OptionsMenu_View;
+        }
 
         #region Resizing
         protected override void WndProc(ref Message m)
@@ -73,16 +81,17 @@ namespace EasyTable
 
         #region Admin
 
-        private async Task LoadUsersAsync()
+        //FillUserData
+        public async Task LoadUsersAsync()
         {
             var list = await context.Users
-                .Include(u => u.Role)           // само за сигурност, но вече не ти трябва навигация в грида
+                .Include(u => u.Role)
                 .Select(u => new UserDto
                 {
                     Id = u.Id,
                     Name = u.Name,
                     UserName = u.Username,
-                    RoleName = u.Role.RoleName,
+                    RoleName = u.Role.RoleName == "Admin" ? "Администратор": u.Role.RoleName == "Waiter" ? "Сервитьор" : u.Role.RoleName,
                     ContactInfo = u.ContactInfo,
                 })
                 .ToListAsync();
@@ -107,7 +116,6 @@ namespace EasyTable
                 cell.Value = Properties.Resources.icon_options_new;
             }
         }
-        #endregion
 
         private void bunifuDataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -115,19 +123,42 @@ namespace EasyTable
             {
                 Point screenPos = Cursor.Position;
 
-                // 2) convert to client‐coords of your form (or whatever parent you added the control to)  
                 Point clientPos = this.PointToClient(screenPos);
-                _optionsMenu.SetId(int.Parse(bunifuDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
+                optionsMenu.SetId(int.Parse(bunifuDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
 
-                // 3) compute the location so that the control’s RIGHT edge is at clientPos.X  
-                int x = clientPos.X - _optionsMenu.Width;
+                int x = clientPos.X - optionsMenu.Width;
                 int y = clientPos.Y;
 
-                _optionsMenu.Visible = true;
-                // 4) position and show  
-                _optionsMenu.Location = new Point(x - 200, y - 100);
+                optionsMenu.Visible = true;
+                optionsMenu.Location = new Point(this.Size.Width - optionsMenu.Size.Width - 203, y - 100);
 
             }
         }
+
+        public void OpenViewEditUserDialog(bool isEdit, int userId)
+        {
+            ViewEditUserDialog viewEditUserDialog = new ViewEditUserDialog(isEdit, userId);
+            viewEditUserDialog.Show();
+        }
+        #endregion
+
+
+        private void OptionsMenu_View(int userId)
+        {
+            ViewEditUserDialog viewEditUserDialog = new ViewEditUserDialog(false, userId);
+            viewEditUserDialog.Show();
+        }
+        private void OptionsMenu_Edit( int userId)
+        {
+            ViewEditUserDialog viewEditUserDialog = new ViewEditUserDialog(true, userId);
+            viewEditUserDialog.UserSaved += async (_, __) => await LoadUsersAsync();
+            viewEditUserDialog.Show();
+        }
+
+        private void OptionsMenu_Delete(int userId)
+        {
+            //DeleteUser(userId);
+        }
+
     }
 }

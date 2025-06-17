@@ -1,4 +1,5 @@
-﻿using EasyTable.Forms.Login;
+﻿using EasyTable.Forms.Admin;
+using EasyTable.Forms.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;

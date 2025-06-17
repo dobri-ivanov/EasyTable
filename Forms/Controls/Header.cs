@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace EasyTable.Forms.Controls
 {
@@ -29,6 +30,48 @@ namespace EasyTable.Forms.Controls
             cursorResetTimer.Tick += CursorResetTimer_Tick;
         }
 
+        #region Setup Controls
+        private bool _showImage = true;
+
+        [Browsable(true)]
+        [Category("Appearance")]
+        [DefaultValue(true)]
+        public bool ShowImage
+        {
+            get => _showImage;
+            set
+            {
+                _showImage = value;
+                bunifuPictureBox1.Visible = value;   // pictureBoxLogo е името на твоя PictureBox
+            }
+        }
+
+        [Browsable(true)]
+        [Category("Appearance")]
+        [DefaultValue(true)]
+        public bool ShowMinimizeButton
+        {
+            get => _showImage;
+            set
+            {
+                _showImage = value;
+                MinimizeButton.Visible = value;   // pictureBoxLogo е името на твоя PictureBox
+            }
+        }
+
+        [Browsable(true)]
+        [Category("Appearance")]
+        [DefaultValue(true)]
+        public bool ShowResizeButton
+        {
+            get => _showImage;
+            set
+            {
+                _showImage = value;
+                ResizeButton.Visible = value;   // pictureBoxLogo е името на твоя PictureBox
+            }
+        }
+        #endregion
         private void CursorResetTimer_Tick(object sender, EventArgs e)
         {
             cursorResetTimer.Stop();
