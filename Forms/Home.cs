@@ -14,24 +14,35 @@ namespace EasyTable
     public partial class Home : Form
     {
         private readonly EasyTableDbContext context;
+        private readonly int currentUserId;
+        private readonly string currentUserName;
 
-        public Home()
+        public Home(int id, string name)
         {
             InitializeComponent();
 
             var factory = new EasyTableDbContextFactory();
             context = factory.CreateDbContext(new string[0]);
 
-            LoadUsersAsync();
+            currentUserId = id;
+            currentUserName = name;
 
             SetUpForm();
+
+            LoadUsersAsync();
+
         }
 
         private void SetUpForm()
         {
+            //Events
             optionsMenu.EditClicked += OptionsMenu_Edit;
             optionsMenu.DeleteClicked += OptionsMenu_Delete;
             optionsMenu.ViewClicked += OptionsMenu_View;
+
+            //Controls
+            navBar1.EmployeeName = currentUserName;
+
         }
 
         #region Resizing
@@ -91,13 +102,44 @@ namespace EasyTable
                     Id = u.Id,
                     Name = u.Name,
                     UserName = u.Username,
-                    RoleName = u.Role.RoleName == "Admin" ? "Администратор": u.Role.RoleName == "Waiter" ? "Сервитьор" : u.Role.RoleName,
+                    RoleName = u.Role.RoleName == "Admin" ? "Администратор" : u.Role.RoleName == "Waiter" ? "Сервитьор" : u.Role.RoleName,
                     ContactInfo = u.ContactInfo,
                 })
                 .ToListAsync();
 
             userDtoBindingSource.DataSource = list;
         }
+
+        //Open Options Menu
+        private void bunifuDataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 5)
+            {
+                int currentRowUserId = int.Parse(bunifuDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                if (currentUserId != currentRowUserId)
+                {
+                    Point screenPos = Cursor.Position;
+
+                    Point clientPos = this.PointToClient(screenPos);
+                    optionsMenu.SetId(currentRowUserId);
+
+                    int x = clientPos.X - optionsMenu.Width;
+                    int y = clientPos.Y;
+
+                    optionsMenu.Visible = true;
+                    optionsMenu.Location = new Point(this.Size.Width - optionsMenu.Size.Width - 203, y - 100);
+                }
+                else
+                {
+                    Notification.Show(this, "Нямате достъп!", Bunifu.UI.WinForms.BunifuSnackbar.MessageTypes.Error);
+                }
+               
+
+            }
+        }
+
+        //Option Menu open/close
         private void bunifuDataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == 5)
@@ -107,7 +149,6 @@ namespace EasyTable
             }
 
         }
-
         private void bunifuDataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == 5)
@@ -117,38 +158,18 @@ namespace EasyTable
             }
         }
 
-        private void bunifuDataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex == 5)
-            {
-                Point screenPos = Cursor.Position;
-
-                Point clientPos = this.PointToClient(screenPos);
-                optionsMenu.SetId(int.Parse(bunifuDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
-
-                int x = clientPos.X - optionsMenu.Width;
-                int y = clientPos.Y;
-
-                optionsMenu.Visible = true;
-                optionsMenu.Location = new Point(this.Size.Width - optionsMenu.Size.Width - 203, y - 100);
-
-            }
-        }
-
-        public void OpenViewEditUserDialog(bool isEdit, int userId)
-        {
-            ViewEditUserDialog viewEditUserDialog = new ViewEditUserDialog(isEdit, userId);
-            viewEditUserDialog.Show();
-        }
-        #endregion
-
-
+        //Option Menu buttons' events
         private void OptionsMenu_View(int userId)
         {
-            ViewEditUserDialog viewEditUserDialog = new ViewEditUserDialog(false, userId);
-            viewEditUserDialog.Show();
+            if (userId != currentUserId)
+            {
+                ViewEditUserDialog viewEditUserDialog = new ViewEditUserDialog(false, userId);
+                viewEditUserDialog.Show();
+            }
+
+
         }
-        private void OptionsMenu_Edit( int userId)
+        private void OptionsMenu_Edit(int userId)
         {
             ViewEditUserDialog viewEditUserDialog = new ViewEditUserDialog(true, userId);
             viewEditUserDialog.UserSaved += async (_, __) => await LoadUsersAsync();
@@ -159,6 +180,7 @@ namespace EasyTable
         {
             //DeleteUser(userId);
         }
+        #endregion
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyTable.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,33 @@ namespace EasyTable.Forms.Login
 {
     public partial class Login : Form
     {
+        private readonly EasyTableDbContext context;
         public Login()
         {
+            EasyTableDbContextFactory factory = new EasyTableDbContextFactory();
+            context = factory.CreateDbContext(new string[0]);
             InitializeComponent();
         }
 
         private void TryLogin()
         {
-            Home main = new Home();
-            main.FormClosed += (s, args) => this.Close();
-            main.Show();
-            this.Hide();
+            string username = UserNameTextbox.Text;
+            string password = PasswordTexbox.Text;
+
+            var user = context.Users.FirstOrDefault(u => u.Username == username && u.HashedPassword == password);
+            if (user != null)
+            {
+                Home main = new Home(user.Id, user.Name);
+                main.FormClosed += (s, args) => this.Close();
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                Notification.Show(this, "Невалидни данни за достъп", Bunifu.UI.WinForms.BunifuSnackbar.MessageTypes.Error);
+            }
+
+
         }
 
         private void ExitButton_Click_1(object sender, EventArgs e)

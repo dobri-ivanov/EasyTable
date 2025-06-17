@@ -557,13 +557,14 @@ namespace EasyTable.Forms.Controls
             // 
             this.employeeLabel.AllowParentOverrides = false;
             this.employeeLabel.AutoEllipsis = false;
+            this.employeeLabel.AutoSize = false;
             this.employeeLabel.CursorType = null;
             this.employeeLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.employeeLabel.Location = new System.Drawing.Point(40, 128);
+            this.employeeLabel.Location = new System.Drawing.Point(3, 128);
             this.employeeLabel.Name = "employeeLabel";
             this.employeeLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.employeeLabel.Size = new System.Drawing.Size(118, 19);
+            this.employeeLabel.Size = new System.Drawing.Size(194, 19);
             this.employeeLabel.TabIndex = 1;
             this.employeeLabel.Text = "Борислав Илиев";
             this.employeeLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -758,7 +759,6 @@ namespace EasyTable.Forms.Controls
             this.Size = new System.Drawing.Size(200, 691);
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel2.ResumeLayout(false);
-            this.bunifuPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
