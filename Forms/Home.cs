@@ -136,7 +136,7 @@ namespace EasyTable
                     optionsMenu.Visible = true;
                     optionsMenu.Location = new Point(this.Size.Width - optionsMenu.Size.Width - 203, y - 100);
                 }
-                else if ((currentUser.Id != currentRowUserId || currentUser.RoleId == 3) && currentRowUserRole != "Администратор")
+                else if (currentRowUserRole != "Администратор")
                 {
                     Point screenPos = Cursor.Position;
 

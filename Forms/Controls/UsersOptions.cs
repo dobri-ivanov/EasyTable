@@ -46,16 +46,19 @@ namespace EasyTable.Forms.Controls
         private void InfoBtn_Click(object sender, EventArgs e)
         {
             ViewClicked?.Invoke(userId);
+            this.Hide();
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
             EditClicked?.Invoke(userId);
+            this.Hide();
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             DeleteClicked?.Invoke(userId);
+            this.Hide();
         }
     }
 }
