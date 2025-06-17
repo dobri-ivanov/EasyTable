@@ -311,6 +311,7 @@ namespace EasyTable.Forms.Controls
             this.DeleteBtn.TextMarginLeft = 0;
             this.DeleteBtn.TextPadding = new System.Windows.Forms.Padding(0);
             this.DeleteBtn.UseDefaultRadiusAndThickness = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // bunifuElipse1
             // 

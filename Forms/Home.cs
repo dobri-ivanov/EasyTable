@@ -1,7 +1,9 @@
 ﻿using EasyTable.Data;
 using EasyTable.Data.Dtos;
+using EasyTable.Data.Models;
 using EasyTable.Forms.Admin;
 using EasyTable.Forms.Controls;
+using EasyTable.Forms.GenericForms;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Drawing;
@@ -14,10 +16,10 @@ namespace EasyTable
     public partial class Home : Form
     {
         private readonly EasyTableDbContext context;
-        private readonly int currentUserId;
-        private readonly string currentUserName;
+        private User currentUser;
 
-        public Home(int id, string name)
+        private int currentUserId;
+        public Home(int id)
         {
             InitializeComponent();
 
@@ -25,24 +27,28 @@ namespace EasyTable
             context = factory.CreateDbContext(new string[0]);
 
             currentUserId = id;
-            currentUserName = name;
-
-            SetUpForm();
-
-            LoadUsersAsync();
+            this.Load += Home_Load;
 
         }
 
+        private async void Home_Load(object sender, EventArgs e)
+        {
+            SetUpForm();
+            await LoadUsersAsync();
+            await LoadCurrentUser(currentUserId);
+        }
+
+        private async Task LoadCurrentUser(int id)
+        {
+            currentUser =  await context.Users.Include(x => x.Role).FirstOrDefaultAsync(u => u.Id == id);
+            navBar1.EmployeeName = currentUser.Name;
+        }
         private void SetUpForm()
         {
             //Events
             optionsMenu.EditClicked += OptionsMenu_Edit;
             optionsMenu.DeleteClicked += OptionsMenu_Delete;
             optionsMenu.ViewClicked += OptionsMenu_View;
-
-            //Controls
-            navBar1.EmployeeName = currentUserName;
-
         }
 
         #region Resizing
@@ -116,8 +122,21 @@ namespace EasyTable
             if (e.RowIndex >= 0 && e.ColumnIndex == 5)
             {
                 int currentRowUserId = int.Parse(bunifuDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                string currentRowUserRole = bunifuDataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                if (currentUser.Role.Id == 3)
+                {
+                    Point screenPos = Cursor.Position;
 
-                if (currentUserId != currentRowUserId)
+                    Point clientPos = this.PointToClient(screenPos);
+                    optionsMenu.SetId(currentRowUserId);
+
+                    int x = clientPos.X - optionsMenu.Width;
+                    int y = clientPos.Y;
+
+                    optionsMenu.Visible = true;
+                    optionsMenu.Location = new Point(this.Size.Width - optionsMenu.Size.Width - 203, y - 100);
+                }
+                else if ((currentUser.Id != currentRowUserId || currentUser.RoleId == 3) && currentRowUserRole != "Администратор")
                 {
                     Point screenPos = Cursor.Position;
 
@@ -161,9 +180,9 @@ namespace EasyTable
         //Option Menu buttons' events
         private void OptionsMenu_View(int userId)
         {
-            if (userId != currentUserId)
+            if (userId != currentUser.Id)
             {
-                ViewEditUserDialog viewEditUserDialog = new ViewEditUserDialog(false, userId);
+                ViewAddEditUserDialog viewEditUserDialog = new ViewAddEditUserDialog(1, userId);
                 viewEditUserDialog.Show();
             }
 
@@ -171,16 +190,33 @@ namespace EasyTable
         }
         private void OptionsMenu_Edit(int userId)
         {
-            ViewEditUserDialog viewEditUserDialog = new ViewEditUserDialog(true, userId);
+            ViewAddEditUserDialog viewEditUserDialog = new ViewAddEditUserDialog(3, userId);
             viewEditUserDialog.UserSaved += async (_, __) => await LoadUsersAsync();
             viewEditUserDialog.Show();
         }
 
-        private void OptionsMenu_Delete(int userId)
+        private async void OptionsMenu_Delete(int userId)
         {
-            //DeleteUser(userId);
+            bool ok = ConfirmationForm.Show(
+                title: "Сигурни ли сте, че искате да изтриете този потребител?",
+                confirmText: "Изтрий",
+                cancelText: "Откажи");
+
+            if (!ok)
+                return;
+
+            var user = await context.Users.FindAsync(userId);
+            context.Users.Remove(user);
+            await context.SaveChangesAsync();
+            await LoadUsersAsync();
         }
         #endregion
 
+        private void addUserBtn_Click(object sender, EventArgs e)
+        {
+            ViewAddEditUserDialog viewEditUserDialog = new ViewAddEditUserDialog(2);
+            viewEditUserDialog.UserSaved += async (_, __) => await LoadUsersAsync();
+            viewEditUserDialog.Show();
+        }
     }
 }

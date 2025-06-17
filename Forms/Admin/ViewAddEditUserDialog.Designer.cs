@@ -1,7 +1,7 @@
 ﻿
 namespace EasyTable.Forms.Admin
 {
-    partial class ViewEditUserDialog
+    partial class ViewAddEditUserDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace EasyTable.Forms.Admin
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewEditUserDialog));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAddEditUserDialog));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -123,7 +123,7 @@ namespace EasyTable.Forms.Admin
             this.SubmitBtn.AutoSizeLeftIcon = true;
             this.SubmitBtn.AutoSizeRightIcon = true;
             this.SubmitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.SubmitBtn.BackColor1 = System.Drawing.Color.DodgerBlue;
+            this.SubmitBtn.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(128)))), ((int)(((byte)(201)))));
             this.SubmitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SubmitBtn.BackgroundImage")));
             this.SubmitBtn.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.SubmitBtn.ButtonText = "Запази";
@@ -153,16 +153,16 @@ namespace EasyTable.Forms.Admin
             this.SubmitBtn.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.SubmitBtn.IconSize = 25;
             this.SubmitBtn.IdleBorderColor = System.Drawing.Color.LightGray;
-            this.SubmitBtn.IdleBorderRadius = 5;
+            this.SubmitBtn.IdleBorderRadius = 10;
             this.SubmitBtn.IdleBorderThickness = 1;
-            this.SubmitBtn.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.SubmitBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(128)))), ((int)(((byte)(201)))));
             this.SubmitBtn.IdleIconLeftImage = null;
             this.SubmitBtn.IdleIconRightImage = null;
             this.SubmitBtn.IndicateFocus = false;
             this.SubmitBtn.Location = new System.Drawing.Point(247, 584);
             this.SubmitBtn.Name = "SubmitBtn";
             this.SubmitBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.SubmitBtn.OnDisabledState.BorderRadius = 5;
+            this.SubmitBtn.OnDisabledState.BorderRadius = 10;
             this.SubmitBtn.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.SubmitBtn.OnDisabledState.BorderThickness = 1;
             this.SubmitBtn.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -170,7 +170,7 @@ namespace EasyTable.Forms.Admin
             this.SubmitBtn.OnDisabledState.IconLeftImage = null;
             this.SubmitBtn.OnDisabledState.IconRightImage = null;
             this.SubmitBtn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.SubmitBtn.onHoverState.BorderRadius = 5;
+            this.SubmitBtn.onHoverState.BorderRadius = 10;
             this.SubmitBtn.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.SubmitBtn.onHoverState.BorderThickness = 1;
             this.SubmitBtn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
@@ -178,15 +178,15 @@ namespace EasyTable.Forms.Admin
             this.SubmitBtn.onHoverState.IconLeftImage = null;
             this.SubmitBtn.onHoverState.IconRightImage = null;
             this.SubmitBtn.OnIdleState.BorderColor = System.Drawing.Color.LightGray;
-            this.SubmitBtn.OnIdleState.BorderRadius = 5;
+            this.SubmitBtn.OnIdleState.BorderRadius = 10;
             this.SubmitBtn.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.SubmitBtn.OnIdleState.BorderThickness = 1;
-            this.SubmitBtn.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.SubmitBtn.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(128)))), ((int)(((byte)(201)))));
             this.SubmitBtn.OnIdleState.ForeColor = System.Drawing.Color.White;
             this.SubmitBtn.OnIdleState.IconLeftImage = null;
             this.SubmitBtn.OnIdleState.IconRightImage = null;
             this.SubmitBtn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.SubmitBtn.OnPressedState.BorderRadius = 5;
+            this.SubmitBtn.OnPressedState.BorderRadius = 10;
             this.SubmitBtn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.SubmitBtn.OnPressedState.BorderThickness = 1;
             this.SubmitBtn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
@@ -243,7 +243,7 @@ namespace EasyTable.Forms.Admin
             this.CancelBtn.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.CancelBtn.IconSize = 25;
             this.CancelBtn.IdleBorderColor = System.Drawing.Color.LightGray;
-            this.CancelBtn.IdleBorderRadius = 5;
+            this.CancelBtn.IdleBorderRadius = 10;
             this.CancelBtn.IdleBorderThickness = 1;
             this.CancelBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
             this.CancelBtn.IdleIconLeftImage = null;
@@ -252,7 +252,7 @@ namespace EasyTable.Forms.Admin
             this.CancelBtn.Location = new System.Drawing.Point(52, 584);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.CancelBtn.OnDisabledState.BorderRadius = 5;
+            this.CancelBtn.OnDisabledState.BorderRadius = 10;
             this.CancelBtn.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.CancelBtn.OnDisabledState.BorderThickness = 1;
             this.CancelBtn.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -260,7 +260,7 @@ namespace EasyTable.Forms.Admin
             this.CancelBtn.OnDisabledState.IconLeftImage = null;
             this.CancelBtn.OnDisabledState.IconRightImage = null;
             this.CancelBtn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.CancelBtn.onHoverState.BorderRadius = 5;
+            this.CancelBtn.onHoverState.BorderRadius = 10;
             this.CancelBtn.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.CancelBtn.onHoverState.BorderThickness = 1;
             this.CancelBtn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
@@ -268,7 +268,7 @@ namespace EasyTable.Forms.Admin
             this.CancelBtn.onHoverState.IconLeftImage = null;
             this.CancelBtn.onHoverState.IconRightImage = null;
             this.CancelBtn.OnIdleState.BorderColor = System.Drawing.Color.LightGray;
-            this.CancelBtn.OnIdleState.BorderRadius = 5;
+            this.CancelBtn.OnIdleState.BorderRadius = 10;
             this.CancelBtn.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.CancelBtn.OnIdleState.BorderThickness = 1;
             this.CancelBtn.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
@@ -276,7 +276,7 @@ namespace EasyTable.Forms.Admin
             this.CancelBtn.OnIdleState.IconLeftImage = null;
             this.CancelBtn.OnIdleState.IconRightImage = null;
             this.CancelBtn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.CancelBtn.OnPressedState.BorderRadius = 5;
+            this.CancelBtn.OnPressedState.BorderRadius = 10;
             this.CancelBtn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.CancelBtn.OnPressedState.BorderThickness = 1;
             this.CancelBtn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
@@ -366,8 +366,8 @@ namespace EasyTable.Forms.Admin
             this.contactTextBox.OnIdleState = stateProperties4;
             this.contactTextBox.Padding = new System.Windows.Forms.Padding(3);
             this.contactTextBox.PasswordChar = '\0';
-            this.contactTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.contactTextBox.PlaceholderText = "Enter text";
+            this.contactTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.contactTextBox.PlaceholderText = "Въведете контакти...";
             this.contactTextBox.ReadOnly = false;
             this.contactTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.contactTextBox.SelectedText = "";
@@ -381,7 +381,7 @@ namespace EasyTable.Forms.Admin
             this.contactTextBox.TextMarginBottom = 0;
             this.contactTextBox.TextMarginLeft = 3;
             this.contactTextBox.TextMarginTop = 0;
-            this.contactTextBox.TextPlaceholder = "Enter text";
+            this.contactTextBox.TextPlaceholder = "Въведете контакти...";
             this.contactTextBox.UseSystemPasswordChar = false;
             this.contactTextBox.WordWrap = true;
             // 
@@ -439,7 +439,7 @@ namespace EasyTable.Forms.Admin
             this.jobDropdown.ItemHighLightForeColor = System.Drawing.Color.White;
             this.jobDropdown.Items.AddRange(new object[] {
             "Сервитьор",
-            "Администратор"});
+            "Управител"});
             this.jobDropdown.ItemTopMargin = 3;
             this.jobDropdown.Location = new System.Drawing.Point(71, 455);
             this.jobDropdown.Name = "jobDropdown";
@@ -523,8 +523,8 @@ namespace EasyTable.Forms.Admin
             this.passwordTextBox.OnIdleState = stateProperties8;
             this.passwordTextBox.Padding = new System.Windows.Forms.Padding(3);
             this.passwordTextBox.PasswordChar = '\0';
-            this.passwordTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.passwordTextBox.PlaceholderText = "Enter text";
+            this.passwordTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.passwordTextBox.PlaceholderText = "Въведете парола...";
             this.passwordTextBox.ReadOnly = false;
             this.passwordTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.passwordTextBox.SelectedText = "";
@@ -538,7 +538,7 @@ namespace EasyTable.Forms.Admin
             this.passwordTextBox.TextMarginBottom = 0;
             this.passwordTextBox.TextMarginLeft = 3;
             this.passwordTextBox.TextMarginTop = 0;
-            this.passwordTextBox.TextPlaceholder = "Enter text";
+            this.passwordTextBox.TextPlaceholder = "Въведете парола...";
             this.passwordTextBox.UseSystemPasswordChar = false;
             this.passwordTextBox.WordWrap = true;
             // 
@@ -616,8 +616,8 @@ namespace EasyTable.Forms.Admin
             this.usernameTextBox.OnIdleState = stateProperties12;
             this.usernameTextBox.Padding = new System.Windows.Forms.Padding(3);
             this.usernameTextBox.PasswordChar = '\0';
-            this.usernameTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.usernameTextBox.PlaceholderText = "Enter text";
+            this.usernameTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.usernameTextBox.PlaceholderText = "Въведете потребител...";
             this.usernameTextBox.ReadOnly = false;
             this.usernameTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.usernameTextBox.SelectedText = "";
@@ -631,7 +631,7 @@ namespace EasyTable.Forms.Admin
             this.usernameTextBox.TextMarginBottom = 0;
             this.usernameTextBox.TextMarginLeft = 3;
             this.usernameTextBox.TextMarginTop = 0;
-            this.usernameTextBox.TextPlaceholder = "Enter text";
+            this.usernameTextBox.TextPlaceholder = "Въведете потребител...";
             this.usernameTextBox.UseSystemPasswordChar = false;
             this.usernameTextBox.WordWrap = true;
             // 
@@ -709,8 +709,8 @@ namespace EasyTable.Forms.Admin
             this.nameTextBox.OnIdleState = stateProperties16;
             this.nameTextBox.Padding = new System.Windows.Forms.Padding(3);
             this.nameTextBox.PasswordChar = '\0';
-            this.nameTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.nameTextBox.PlaceholderText = "Enter text";
+            this.nameTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.nameTextBox.PlaceholderText = "Въведете име...";
             this.nameTextBox.ReadOnly = false;
             this.nameTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.nameTextBox.SelectedText = "";
@@ -724,7 +724,7 @@ namespace EasyTable.Forms.Admin
             this.nameTextBox.TextMarginBottom = 0;
             this.nameTextBox.TextMarginLeft = 3;
             this.nameTextBox.TextMarginTop = 0;
-            this.nameTextBox.TextPlaceholder = "Enter text";
+            this.nameTextBox.TextPlaceholder = "Въведете име...";
             this.nameTextBox.UseSystemPasswordChar = false;
             this.nameTextBox.WordWrap = true;
             // 
@@ -746,7 +746,7 @@ namespace EasyTable.Forms.Admin
             this.TitleLable.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.TitleLable.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // ViewEditUserDialog
+            // ViewAddEditUserDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -754,7 +754,7 @@ namespace EasyTable.Forms.Admin
             this.ClientSize = new System.Drawing.Size(437, 635);
             this.Controls.Add(this.bunifuPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ViewEditUserDialog";
+            this.Name = "ViewAddEditUserDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewEditUserDialog";
             this.bunifuPanel1.ResumeLayout(false);

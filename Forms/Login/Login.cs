@@ -29,7 +29,7 @@ namespace EasyTable.Forms.Login
             var user = context.Users.FirstOrDefault(u => u.Username == username && u.HashedPassword == password);
             if (user != null)
             {
-                Home main = new Home(user.Id, user.Name);
+                Home main = new Home(user.Id);
                 main.FormClosed += (s, args) => this.Close();
                 main.Show();
                 this.Hide();

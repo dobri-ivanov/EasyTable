@@ -35,30 +35,34 @@ namespace EasyTable
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuPages1 = new Bunifu.UI.WinForms.BunifuPages();
             this.PageAdmin = new System.Windows.Forms.TabPage();
+            this.Notification = new Bunifu.UI.WinForms.BunifuSnackbar(this.components);
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.Options = new System.Windows.Forms.DataGridViewImageColumn();
+            this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.addUserBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.optionsMenu = new EasyTable.Forms.Controls.UsersOptions();
             this._optionsMenu = new EasyTable.Forms.Controls.UsersOptions();
-            this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Options = new System.Windows.Forms.DataGridViewImageColumn();
             this.userDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.navBar1 = new EasyTable.Forms.Controls.NavBar();
             this.header1 = new EasyTable.Forms.Controls.Header();
-            this.Notification = new Bunifu.UI.WinForms.BunifuSnackbar(this.components);
             this.bunifuPages1.SuspendLayout();
             this.PageAdmin.SuspendLayout();
             this.bunifuPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userDtoBindingSource)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
+            this.bunifuPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userDtoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuPages1
@@ -109,6 +113,75 @@ namespace EasyTable
             this.PageAdmin.TabIndex = 0;
             this.PageAdmin.Text = "tabPageAdmin";
             // 
+            // Notification
+            // 
+            this.Notification.AllowDragging = false;
+            this.Notification.AllowMultipleViews = true;
+            this.Notification.ClickToClose = true;
+            this.Notification.DoubleClickToClose = true;
+            this.Notification.DurationAfterIdle = 3000;
+            this.Notification.ErrorOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Notification.ErrorOptions.ActionBorderColor = System.Drawing.Color.Gainsboro;
+            this.Notification.ErrorOptions.ActionBorderRadius = 5;
+            this.Notification.ErrorOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.Notification.ErrorOptions.ActionForeColor = System.Drawing.Color.Black;
+            this.Notification.ErrorOptions.BackColor = System.Drawing.Color.White;
+            this.Notification.ErrorOptions.BorderColor = System.Drawing.Color.Gainsboro;
+            this.Notification.ErrorOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(199)))));
+            this.Notification.ErrorOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.Notification.ErrorOptions.ForeColor = System.Drawing.Color.Black;
+            this.Notification.ErrorOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon")));
+            this.Notification.ErrorOptions.IconLeftMargin = 12;
+            this.Notification.FadeCloseIcon = false;
+            this.Notification.Host = Bunifu.UI.WinForms.BunifuSnackbar.Hosts.FormOwner;
+            this.Notification.InformationOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Notification.InformationOptions.ActionBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Notification.InformationOptions.ActionBorderRadius = 1;
+            this.Notification.InformationOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.Notification.InformationOptions.ActionForeColor = System.Drawing.Color.Black;
+            this.Notification.InformationOptions.BackColor = System.Drawing.Color.White;
+            this.Notification.InformationOptions.BorderColor = System.Drawing.Color.White;
+            this.Notification.InformationOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(213)))), ((int)(((byte)(255)))));
+            this.Notification.InformationOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.Notification.InformationOptions.ForeColor = System.Drawing.Color.Black;
+            this.Notification.InformationOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon1")));
+            this.Notification.InformationOptions.IconLeftMargin = 12;
+            this.Notification.Margin = 10;
+            this.Notification.MaximumSize = new System.Drawing.Size(0, 0);
+            this.Notification.MaximumViews = 7;
+            this.Notification.MessageRightMargin = 15;
+            this.Notification.MinimumSize = new System.Drawing.Size(0, 0);
+            this.Notification.ShowBorders = false;
+            this.Notification.ShowCloseIcon = true;
+            this.Notification.ShowIcon = true;
+            this.Notification.ShowShadows = true;
+            this.Notification.SuccessOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Notification.SuccessOptions.ActionBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Notification.SuccessOptions.ActionBorderRadius = 1;
+            this.Notification.SuccessOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.Notification.SuccessOptions.ActionForeColor = System.Drawing.Color.Black;
+            this.Notification.SuccessOptions.BackColor = System.Drawing.Color.White;
+            this.Notification.SuccessOptions.BorderColor = System.Drawing.Color.White;
+            this.Notification.SuccessOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(237)))));
+            this.Notification.SuccessOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.Notification.SuccessOptions.ForeColor = System.Drawing.Color.Black;
+            this.Notification.SuccessOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon2")));
+            this.Notification.SuccessOptions.IconLeftMargin = 12;
+            this.Notification.ViewsMargin = 7;
+            this.Notification.WarningOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Notification.WarningOptions.ActionBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Notification.WarningOptions.ActionBorderRadius = 1;
+            this.Notification.WarningOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.Notification.WarningOptions.ActionForeColor = System.Drawing.Color.Black;
+            this.Notification.WarningOptions.BackColor = System.Drawing.Color.White;
+            this.Notification.WarningOptions.BorderColor = System.Drawing.Color.White;
+            this.Notification.WarningOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(229)))), ((int)(((byte)(143)))));
+            this.Notification.WarningOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.Notification.WarningOptions.ForeColor = System.Drawing.Color.Black;
+            this.Notification.WarningOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon3")));
+            this.Notification.WarningOptions.IconLeftMargin = 12;
+            this.Notification.ZoomCloseIcon = true;
+            // 
             // bunifuPanel2
             // 
             this.bunifuPanel2.BackgroundColor = System.Drawing.Color.Transparent;
@@ -126,22 +199,6 @@ namespace EasyTable
             this.bunifuPanel2.ShowBorders = true;
             this.bunifuPanel2.Size = new System.Drawing.Size(988, 593);
             this.bunifuPanel2.TabIndex = 2;
-            // 
-            // optionsMenu
-            // 
-            this.optionsMenu.Location = new System.Drawing.Point(888, 477);
-            this.optionsMenu.Name = "optionsMenu";
-            this.optionsMenu.Size = new System.Drawing.Size(100, 118);
-            this.optionsMenu.TabIndex = 2;
-            this.optionsMenu.Visible = false;
-            // 
-            // _optionsMenu
-            // 
-            this._optionsMenu.Location = new System.Drawing.Point(894, 477);
-            this._optionsMenu.Name = "_optionsMenu";
-            this._optionsMenu.Size = new System.Drawing.Size(100, 118);
-            this._optionsMenu.TabIndex = 1;
-            this._optionsMenu.Visible = false;
             // 
             // bunifuDataGridView1
             // 
@@ -232,6 +289,176 @@ namespace EasyTable
             this.bunifuDataGridView1.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellMouseEnter);
             this.bunifuDataGridView1.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellMouseLeave);
             // 
+            // Options
+            // 
+            this.Options.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Options.FillWeight = 13F;
+            this.Options.HeaderText = "";
+            this.Options.Image = global::EasyTable.Properties.Resources.icon_options_new;
+            this.Options.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Options.Name = "Options";
+            this.Options.ReadOnly = true;
+            this.Options.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Options.Width = 36;
+            // 
+            // bunifuPanel1
+            // 
+            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
+            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel1.BorderRadius = 3;
+            this.bunifuPanel1.BorderThickness = 1;
+            this.bunifuPanel1.Controls.Add(this.bunifuPanel3);
+            this.bunifuPanel1.Controls.Add(this.bunifuLabel1);
+            this.bunifuPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bunifuPanel1.Location = new System.Drawing.Point(2, 2);
+            this.bunifuPanel1.Name = "bunifuPanel1";
+            this.bunifuPanel1.ShowBorders = true;
+            this.bunifuPanel1.Size = new System.Drawing.Size(988, 68);
+            this.bunifuPanel1.TabIndex = 1;
+            // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel1.ForeColor = System.Drawing.Color.White;
+            this.bunifuLabel1.Location = new System.Drawing.Point(16, 18);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(151, 25);
+            this.bunifuLabel1.TabIndex = 0;
+            this.bunifuLabel1.Text = "Администрация";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // addUserBtn
+            // 
+            this.addUserBtn.AllowAnimations = true;
+            this.addUserBtn.AllowMouseEffects = true;
+            this.addUserBtn.AllowToggling = false;
+            this.addUserBtn.AnimationSpeed = 200;
+            this.addUserBtn.AutoGenerateColors = false;
+            this.addUserBtn.AutoRoundBorders = false;
+            this.addUserBtn.AutoSizeLeftIcon = false;
+            this.addUserBtn.AutoSizeRightIcon = false;
+            this.addUserBtn.BackColor = System.Drawing.Color.Transparent;
+            this.addUserBtn.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(128)))), ((int)(((byte)(201)))));
+            this.addUserBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addUserBtn.BackgroundImage")));
+            this.addUserBtn.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.addUserBtn.ButtonText = "+";
+            this.addUserBtn.ButtonTextMarginLeft = 0;
+            this.addUserBtn.ColorContrastOnClick = 45;
+            this.addUserBtn.ColorContrastOnHover = 45;
+            this.addUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.addUserBtn.CustomizableEdges = borderEdges1;
+            this.addUserBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.addUserBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.addUserBtn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.addUserBtn.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.addUserBtn.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Idle;
+            this.addUserBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUserBtn.ForeColor = System.Drawing.Color.White;
+            this.addUserBtn.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addUserBtn.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.addUserBtn.IconLeftPadding = new System.Windows.Forms.Padding(3);
+            this.addUserBtn.IconMarginLeft = 11;
+            this.addUserBtn.IconPadding = 0;
+            this.addUserBtn.IconRightAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.addUserBtn.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.addUserBtn.IconRightPadding = new System.Windows.Forms.Padding(3);
+            this.addUserBtn.IconSize = 25;
+            this.addUserBtn.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(128)))), ((int)(((byte)(201)))));
+            this.addUserBtn.IdleBorderRadius = 10;
+            this.addUserBtn.IdleBorderThickness = 1;
+            this.addUserBtn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(128)))), ((int)(((byte)(201)))));
+            this.addUserBtn.IdleIconLeftImage = null;
+            this.addUserBtn.IdleIconRightImage = null;
+            this.addUserBtn.IndicateFocus = false;
+            this.addUserBtn.Location = new System.Drawing.Point(158, 18);
+            this.addUserBtn.Name = "addUserBtn";
+            this.addUserBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.addUserBtn.OnDisabledState.BorderRadius = 10;
+            this.addUserBtn.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.addUserBtn.OnDisabledState.BorderThickness = 1;
+            this.addUserBtn.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.addUserBtn.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.addUserBtn.OnDisabledState.IconLeftImage = null;
+            this.addUserBtn.OnDisabledState.IconRightImage = null;
+            this.addUserBtn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.addUserBtn.onHoverState.BorderRadius = 10;
+            this.addUserBtn.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.addUserBtn.onHoverState.BorderThickness = 1;
+            this.addUserBtn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.addUserBtn.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.addUserBtn.onHoverState.IconLeftImage = null;
+            this.addUserBtn.onHoverState.IconRightImage = null;
+            this.addUserBtn.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(128)))), ((int)(((byte)(201)))));
+            this.addUserBtn.OnIdleState.BorderRadius = 10;
+            this.addUserBtn.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.addUserBtn.OnIdleState.BorderThickness = 1;
+            this.addUserBtn.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(128)))), ((int)(((byte)(201)))));
+            this.addUserBtn.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.addUserBtn.OnIdleState.IconLeftImage = null;
+            this.addUserBtn.OnIdleState.IconRightImage = null;
+            this.addUserBtn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.addUserBtn.OnPressedState.BorderRadius = 10;
+            this.addUserBtn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.addUserBtn.OnPressedState.BorderThickness = 1;
+            this.addUserBtn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.addUserBtn.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.addUserBtn.OnPressedState.IconLeftImage = null;
+            this.addUserBtn.OnPressedState.IconRightImage = null;
+            this.addUserBtn.Size = new System.Drawing.Size(39, 39);
+            this.addUserBtn.TabIndex = 1;
+            this.addUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.addUserBtn.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.addUserBtn.TextMarginLeft = 0;
+            this.addUserBtn.TextPadding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.addUserBtn.UseDefaultRadiusAndThickness = true;
+            this.addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
+            // 
+            // bunifuPanel3
+            // 
+            this.bunifuPanel3.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
+            this.bunifuPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel3.BorderRadius = 3;
+            this.bunifuPanel3.BorderThickness = 1;
+            this.bunifuPanel3.Controls.Add(this.addUserBtn);
+            this.bunifuPanel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bunifuPanel3.Location = new System.Drawing.Point(788, 0);
+            this.bunifuPanel3.Margin = new System.Windows.Forms.Padding(50);
+            this.bunifuPanel3.Name = "bunifuPanel3";
+            this.bunifuPanel3.Padding = new System.Windows.Forms.Padding(50);
+            this.bunifuPanel3.ShowBorders = true;
+            this.bunifuPanel3.Size = new System.Drawing.Size(200, 68);
+            this.bunifuPanel3.TabIndex = 2;
+            // 
+            // optionsMenu
+            // 
+            this.optionsMenu.Location = new System.Drawing.Point(888, 477);
+            this.optionsMenu.Name = "optionsMenu";
+            this.optionsMenu.Size = new System.Drawing.Size(100, 118);
+            this.optionsMenu.TabIndex = 2;
+            this.optionsMenu.Visible = false;
+            // 
+            // _optionsMenu
+            // 
+            this._optionsMenu.Location = new System.Drawing.Point(894, 477);
+            this._optionsMenu.Name = "_optionsMenu";
+            this._optionsMenu.Size = new System.Drawing.Size(100, 118);
+            this._optionsMenu.TabIndex = 1;
+            this._optionsMenu.Visible = false;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -272,54 +499,9 @@ namespace EasyTable
             this.contactInfoDataGridViewTextBoxColumn.Name = "contactInfoDataGridViewTextBoxColumn";
             this.contactInfoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Options
-            // 
-            this.Options.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Options.FillWeight = 13F;
-            this.Options.HeaderText = "";
-            this.Options.Image = global::EasyTable.Properties.Resources.icon_options_new;
-            this.Options.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Options.Name = "Options";
-            this.Options.ReadOnly = true;
-            this.Options.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Options.Width = 36;
-            // 
             // userDtoBindingSource
             // 
             this.userDtoBindingSource.DataSource = typeof(EasyTable.Data.Dtos.UserDto);
-            // 
-            // bunifuPanel1
-            // 
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
-            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BorderRadius = 3;
-            this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.bunifuLabel1);
-            this.bunifuPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuPanel1.Location = new System.Drawing.Point(2, 2);
-            this.bunifuPanel1.Name = "bunifuPanel1";
-            this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(988, 68);
-            this.bunifuPanel1.TabIndex = 1;
-            // 
-            // bunifuLabel1
-            // 
-            this.bunifuLabel1.AllowParentOverrides = false;
-            this.bunifuLabel1.AutoEllipsis = false;
-            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuLabel1.Location = new System.Drawing.Point(16, 18);
-            this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(151, 25);
-            this.bunifuLabel1.TabIndex = 0;
-            this.bunifuLabel1.Text = "Администрация";
-            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // navBar1
             // 
@@ -342,75 +524,6 @@ namespace EasyTable
             this.header1.Size = new System.Drawing.Size(1200, 40);
             this.header1.TabIndex = 2;
             // 
-            // Notification
-            // 
-            this.Notification.AllowDragging = false;
-            this.Notification.AllowMultipleViews = true;
-            this.Notification.ClickToClose = true;
-            this.Notification.DoubleClickToClose = true;
-            this.Notification.DurationAfterIdle = 3000;
-            this.Notification.ErrorOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Notification.ErrorOptions.ActionBorderColor = System.Drawing.Color.Gainsboro;
-            this.Notification.ErrorOptions.ActionBorderRadius = 5;
-            this.Notification.ErrorOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.Notification.ErrorOptions.ActionForeColor = System.Drawing.Color.Black;
-            this.Notification.ErrorOptions.BackColor = System.Drawing.Color.White;
-            this.Notification.ErrorOptions.BorderColor = System.Drawing.Color.Gainsboro;
-            this.Notification.ErrorOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(199)))));
-            this.Notification.ErrorOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.Notification.ErrorOptions.ForeColor = System.Drawing.Color.Black;
-            this.Notification.ErrorOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon")));
-            this.Notification.ErrorOptions.IconLeftMargin = 12;
-            this.Notification.FadeCloseIcon = false;
-            this.Notification.Host = Bunifu.UI.WinForms.BunifuSnackbar.Hosts.FormOwner;
-            this.Notification.InformationOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Notification.InformationOptions.ActionBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Notification.InformationOptions.ActionBorderRadius = 1;
-            this.Notification.InformationOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.Notification.InformationOptions.ActionForeColor = System.Drawing.Color.Black;
-            this.Notification.InformationOptions.BackColor = System.Drawing.Color.White;
-            this.Notification.InformationOptions.BorderColor = System.Drawing.Color.White;
-            this.Notification.InformationOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(213)))), ((int)(((byte)(255)))));
-            this.Notification.InformationOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.Notification.InformationOptions.ForeColor = System.Drawing.Color.Black;
-            this.Notification.InformationOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon1")));
-            this.Notification.InformationOptions.IconLeftMargin = 12;
-            this.Notification.Margin = 10;
-            this.Notification.MaximumSize = new System.Drawing.Size(0, 0);
-            this.Notification.MaximumViews = 7;
-            this.Notification.MessageRightMargin = 15;
-            this.Notification.MinimumSize = new System.Drawing.Size(0, 0);
-            this.Notification.ShowBorders = false;
-            this.Notification.ShowCloseIcon = true;
-            this.Notification.ShowIcon = true;
-            this.Notification.ShowShadows = true;
-            this.Notification.SuccessOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Notification.SuccessOptions.ActionBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Notification.SuccessOptions.ActionBorderRadius = 1;
-            this.Notification.SuccessOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.Notification.SuccessOptions.ActionForeColor = System.Drawing.Color.Black;
-            this.Notification.SuccessOptions.BackColor = System.Drawing.Color.White;
-            this.Notification.SuccessOptions.BorderColor = System.Drawing.Color.White;
-            this.Notification.SuccessOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(237)))));
-            this.Notification.SuccessOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.Notification.SuccessOptions.ForeColor = System.Drawing.Color.Black;
-            this.Notification.SuccessOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon2")));
-            this.Notification.SuccessOptions.IconLeftMargin = 12;
-            this.Notification.ViewsMargin = 7;
-            this.Notification.WarningOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Notification.WarningOptions.ActionBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Notification.WarningOptions.ActionBorderRadius = 1;
-            this.Notification.WarningOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.Notification.WarningOptions.ActionForeColor = System.Drawing.Color.Black;
-            this.Notification.WarningOptions.BackColor = System.Drawing.Color.White;
-            this.Notification.WarningOptions.BorderColor = System.Drawing.Color.White;
-            this.Notification.WarningOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(229)))), ((int)(((byte)(143)))));
-            this.Notification.WarningOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.Notification.WarningOptions.ForeColor = System.Drawing.Color.Black;
-            this.Notification.WarningOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon3")));
-            this.Notification.WarningOptions.IconLeftMargin = 12;
-            this.Notification.ZoomCloseIcon = true;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,9 +542,10 @@ namespace EasyTable
             this.PageAdmin.ResumeLayout(false);
             this.bunifuPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userDtoBindingSource)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
+            this.bunifuPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.userDtoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,6 +570,8 @@ namespace EasyTable
         private Forms.Controls.UsersOptions _optionsMenu;
         private Forms.Controls.UsersOptions optionsMenu;
         private Bunifu.UI.WinForms.BunifuSnackbar Notification;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton addUserBtn;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel3;
     }
 }
 

@@ -274,11 +274,11 @@
     <Compile Include="Data\Models\Role.cs" />
     <Compile Include="Data\Models\User.cs" />
     <Compile Include="Data\EasyTableDbContextFactory.cs" />
-    <Compile Include="Forms\Admin\ViewEditUserDialog.cs">
+    <Compile Include="Forms\Admin\ViewAddEditUserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\ViewEditUserDialog.Designer.cs">
-      <DependentUpon>ViewEditUserDialog.cs</DependentUpon>
+    <Compile Include="Forms\Admin\ViewAddEditUserDialog.Designer.cs">
+      <DependentUpon>ViewAddEditUserDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Controls\Header.cs">
       <SubType>UserControl</SubType>
@@ -297,6 +297,12 @@
     </Compile>
     <Compile Include="Forms\Controls\UsersOptions.Designer.cs">
       <DependentUpon>UsersOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GenericForms\ConfirmationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GenericForms\ConfirmationForm.Designer.cs">
+      <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
@@ -317,8 +323,8 @@
     <Compile Include="Migrations\EasyTableDbContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Admin\ViewEditUserDialog.resx">
-      <DependentUpon>ViewEditUserDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Admin\ViewAddEditUserDialog.resx">
+      <DependentUpon>ViewAddEditUserDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Controls\Header.resx">
       <DependentUpon>Header.cs</DependentUpon>
@@ -328,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Controls\UsersOptions.resx">
       <DependentUpon>UsersOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GenericForms\ConfirmationForm.resx">
+      <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -386,6 +395,7 @@
   <ItemGroup>
     <None Include="Resources\icon-options-hover.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

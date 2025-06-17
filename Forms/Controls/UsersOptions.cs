@@ -52,5 +52,10 @@ namespace EasyTable.Forms.Controls
         {
             EditClicked?.Invoke(userId);
         }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            DeleteClicked?.Invoke(userId);
+        }
     }
 }
