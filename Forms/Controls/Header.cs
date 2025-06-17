@@ -32,6 +32,8 @@ namespace EasyTable.Forms.Controls
 
         #region Setup Controls
         private bool _showImage = true;
+        private bool _showMinimize = true;
+        private bool _showResize = true;
 
         [Browsable(true)]
         [Category("Appearance")]
@@ -51,10 +53,10 @@ namespace EasyTable.Forms.Controls
         [DefaultValue(true)]
         public bool ShowMinimizeButton
         {
-            get => _showImage;
+            get => _showMinimize;
             set
             {
-                _showImage = value;
+                _showMinimize = value;
                 MinimizeButton.Visible = value;   // pictureBoxLogo е името на твоя PictureBox
             }
         }
@@ -64,10 +66,10 @@ namespace EasyTable.Forms.Controls
         [DefaultValue(true)]
         public bool ShowResizeButton
         {
-            get => _showImage;
+            get => _showResize;
             set
             {
-                _showImage = value;
+                _showResize = value;
                 ResizeButton.Visible = value;   // pictureBoxLogo е името на твоя PictureBox
             }
         }
